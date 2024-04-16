@@ -1,37 +1,42 @@
-<?php 
+<?php
 
   if (isset($_GET['pwd-length'])) {
     session_start();
-    $_SESSION['$pwd_length'] = $_GET['pwd-length'];
+    $_SESSION['pwd_length'] = $_GET['pwd-length'];
+    $_SESSION['letters'] = $_GET['letters'];
+    $_SESSION['numbers'] = $_GET['numbers'];
+    $_SESSION['symbols'] = $_GET['symbols'];
     header('Location: ./success.php');
   }
-
-  function generatePassword ($n) {
+  
+  function generatePassword ($n, $letters, $numbers, $symbols) {
     $data_string = '';
     $pwd = '';
 
     $data = [
       'letters_lowercase' => [
         'item' => 'abcdefghijklmnopqrstuvwxyz',
-        'selected' => true
+        'selected' => $letters
       ],
       'letters_uppercase' => [
         'item' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-        'selected' => true
+        'selected' => $letters
       ],
       'numbers' => [
         'item' => '0123456789',
-        'selected' => true
+        'selected' => $numbers
       ],
       'symbols' => [
         'item' => '!?&%$^+-*/()[]{}@#_=',
-        'selected' => true
+        'selected' => $symbols
       ]
     ];
 
     foreach($data as $type) {
-      if ($type['selected']) {
+      if ($type['selected'] === 'true') {
         $data_string .= $type['item'];
+      } else {
+        $data_string .= '';
       }
     };
 
@@ -42,4 +47,5 @@
     
     return $pwd;
   }
+
 ?>

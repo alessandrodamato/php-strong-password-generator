@@ -1,11 +1,18 @@
 <?php 
+
   require __DIR__ . '/functions.php';
+
   session_start();
-  if (!isset($_SESSION['$pwd_length'])){
+  
+  if (!isset($_SESSION['pwd_length']) || ($_SESSION['letters'] === null && $_SESSION['numbers'] === null && $_SESSION['symbols'] === null)){
     header('Location: ./index.php');
   } else {
-    $pwd_length = $_SESSION['$pwd_length'];
+    $pwd_length = $_SESSION['pwd_length'];
+    $letters = $_SESSION['letters'];
+    $numbers = $_SESSION['numbers'];
+    $symbols = $_SESSION['symbols'];
   }
+
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +35,7 @@
         <div class="col-6 offset-3">
 
           <h1 class="text-center">Password:</h1>
-          <p><?php echo generatePassword($pwd_length)?></p>
+          <p><?php echo generatePassword($pwd_length, $letters, $numbers, $symbols)?></p>
 
         </div>
 

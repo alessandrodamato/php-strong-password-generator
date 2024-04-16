@@ -24,7 +24,28 @@
           <form action="index.php" method="GET" class="my-5">
 
             <label for="pwd-length">Numero caratteri password</label>
-            <input type="number" class="form-control mb-3" id="pwd-length" name="pwd-length">
+            <input type="number" class="form-control mb-3" id="pwd-length" name="pwd-length" min="1" required>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="true" id="letters" name="letters" checked>
+              <label class="form-check-label" for="letters">
+                Lettere
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="true" id="numbers" name="numbers" checked>
+              <label class="form-check-label" for="numbers">
+                Numeri
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="true" id="symbols" name="symbols" checked>
+              <label class="form-check-label" for="symbols">
+                Simboli
+              </label>
+            </div>
 
             <button type="submit" class="btn btn-warning">Invia</button>
 
