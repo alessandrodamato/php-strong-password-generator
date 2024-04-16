@@ -1,5 +1,11 @@
 <?php 
   require __DIR__ . '/functions.php';
+  session_start();
+  if (!isset($_SESSION['$pwd_length'])){
+    header('Location: ./index.php');
+  } else {
+    $pwd_length = $_SESSION['$pwd_length'];
+  }
 ?>
 
 <!DOCTYPE html>
@@ -21,14 +27,8 @@
 
         <div class="col-6 offset-3">
 
-          <form action="index.php" method="GET" class="my-5">
-
-            <label for="pwd-length">Numero caratteri password</label>
-            <input type="number" class="form-control mb-3" id="pwd-length" name="pwd-length">
-
-            <button type="submit" class="btn btn-warning">Invia</button>
-
-          </form>
+          <h1 class="text-center">Password:</h1>
+          <p><?php echo generatePassword($pwd_length)?></p>
 
         </div>
 

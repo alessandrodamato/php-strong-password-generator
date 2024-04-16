@@ -1,7 +1,9 @@
 <?php 
 
   if (isset($_GET['pwd-length'])) {
-    $pwd_length = $_GET['pwd-length'];
+    session_start();
+    $_SESSION['$pwd_length'] = $_GET['pwd-length'];
+    header('Location: ./success.php');
   }
 
   function generatePassword ($n) {
