@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="style/style.css">
   <title>PHP Strong Password Generator</title>
 </head>
-<body>
+<body class="bg-secondary">
 
   <div class="main-wrapper">
 
@@ -47,7 +47,7 @@
               </label>
             </div>
 
-            <button type="submit" class="btn btn-warning">Invia</button>
+            <button type="submit" class="btn btn-warning mt-4">Invia</button>
 
           </form>
 

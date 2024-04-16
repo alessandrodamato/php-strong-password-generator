@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="style/style.css">
   <title>PHP Strong Password Generator</title>
 </head>
-<body>
+<body class="bg-secondary">
 
   <div class="main-wrapper">
 
@@ -34,8 +34,8 @@
 
         <div class="col-6 offset-3">
 
-          <h1 class="text-center">Password:</h1>
-          <p><?php echo generatePassword($pwd_length, $letters, $numbers, $symbols)?></p>
+          <h1 class="text-center mt-5 mb-3">Password:</h1>
+          <h5 class="text-center"><?php echo generatePassword($pwd_length, $letters, $numbers, $symbols)?></h5>
 
         </div>
 
