@@ -24,7 +24,8 @@
           <form action="index.php" method="GET" class="my-5">
 
             <?php if (isset($_GET['pwd-length'])): ?>
-              <h1>Password: <?php echo generatePassword($pwd_length) ?></h1>
+              <h1 class="text-center">Password:</h1>
+              <p><?php echo generatePassword($pwd_length)?></p>
 
             <?php else: ?>
             <label for="pwd-length">Numero caratteri password</label>
