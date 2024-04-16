@@ -7,24 +7,23 @@
   function generatePassword ($n) {
     $data_string = '';
     $pwd = '';
-    var_dump($data_string);
 
     $data = [
-      "letters_lowercase" => [
-        "item" => "abcdefghijklmnopqrstuvwxyz",
-        "selected" => true
+      'letters_lowercase' => [
+        'item' => 'abcdefghijklmnopqrstuvwxyz',
+        'selected' => true
       ],
-      "letters_uppercase" => [
-        "item" => "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        "selected" => true
+      'letters_uppercase' => [
+        'item' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        'selected' => true
       ],
-      "numbers" => [
-        "item" => "0123456789",
-        "selected" => true
+      'numbers' => [
+        'item' => '0123456789',
+        'selected' => true
       ],
-      "symbols" => [
-        "item" => "!?&%$<>^+-*/()[]{}@#_=",
-        "selected" => true
+      'symbols' => [
+        'item' => '!?&%$^+-*/()[]{}@#_=',
+        'selected' => true
       ]
     ];
 
@@ -34,12 +33,11 @@
       }
     };
 
-    for ($i = 0; $i < intval($n) ; $i++) {
-      $str = rand(0, strlen($data_string));
-      $pwd .= trim($data_string[$str]);
-      var_dump(strlen($pwd));
+    for ($i = 1; $i <= $n ; $i++) {
+      $str = rand(0, (strlen($data_string) - 1));
+      $pwd .= $data_string[$str];
     };
-
+    
     return $pwd;
   }
 ?>

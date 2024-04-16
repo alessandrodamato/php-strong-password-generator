@@ -29,7 +29,7 @@
 
             <?php else: ?>
             <label for="pwd-length">Numero caratteri password</label>
-            <input type="number" class="form-control mb-3" id="pwd-length" min="8" name="pwd-length">
+            <input type="number" class="form-control mb-3" id="pwd-length" name="pwd-length">
 
             <button type="submit" class="btn btn-warning">Invia</button>
             <?php endif ?>
