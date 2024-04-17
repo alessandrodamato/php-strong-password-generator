@@ -22,9 +22,23 @@
         <div class="col-6 offset-3">
 
           <form action="index.php" method="GET" class="my-5">
-
+            
             <label for="pwd-length">Numero caratteri password</label>
-            <input type="number" class="form-control mb-3" id="pwd-length" name="pwd-length" min="1" required>
+            <input type="number" class="form-control mb-3" id="pwd-length" name="pwd-length" min="8" required>
+            
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="false" name="norepeat" id="repeat" checked>
+              <label class="form-check-label" for="repeat">
+                Consenti ripetizione caratteri
+              </label>
+            </div>
+
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="radio" value="true" name="norepeat" id="norepeat">
+              <label class="form-check-label" for="norepeat">
+                Non consentire ripetizione caratteri
+              </label>
+            </div>
 
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="true" id="letters" name="letters" checked>
@@ -48,6 +62,7 @@
             </div>
 
             <button type="submit" class="btn btn-warning mt-4">Invia</button>
+
 
           </form>
 

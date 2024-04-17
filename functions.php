@@ -6,10 +6,11 @@
     $_SESSION['letters'] = $_GET['letters'];
     $_SESSION['numbers'] = $_GET['numbers'];
     $_SESSION['symbols'] = $_GET['symbols'];
+    $_SESSION['norepeat'] = $_GET['norepeat'];
     header('Location: ./success.php');
   }
   
-  function generatePassword ($n, $letters, $numbers, $symbols) {
+  function generatePassword ($n, $letters, $numbers, $symbols, $norepeat) {
     $data_string = '';
     $pwd = '';
 
@@ -27,7 +28,7 @@
         'selected' => $numbers
       ],
       'symbols' => [
-        'item' => '!?&%$^+-*/()[]{}@#_=',
+        'item' => '!?&%$<>^+-*/()[]{}@#_=',
         'selected' => $symbols
       ]
     ];
@@ -40,11 +41,30 @@
       }
     };
 
-    for ($i = 1; $i <= $n ; $i++) {
+    if ($norepeat === 'true') {
+      $n = $n > strlen($data_string) ? strlen($data_string) : $n;
+    }
+
+    while(strlen($pwd) < $n){
       $str = rand(0, (strlen($data_string) - 1));
-      $pwd .= $data_string[$str];
-    };
-    
+
+      if ($norepeat === 'true') {
+        
+        if (!str_contains($pwd, $data_string[$str])) {
+          $pwd .= $data_string[$str];
+        } else{
+          $pwd .= '';
+        }
+
+      } else {
+        $pwd .= $data_string[$str];
+      }
+
+    }
+
+    $pwd = str_replace('<', '&lt', $pwd);
+    $pwd = str_replace('>', '&gt', $pwd);
+
     return $pwd;
   }
 

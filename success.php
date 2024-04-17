@@ -11,6 +11,7 @@
     $letters = $_SESSION['letters'];
     $numbers = $_SESSION['numbers'];
     $symbols = $_SESSION['symbols'];
+    $norepeat = $_SESSION['norepeat'];
   }
 
 ?>
@@ -32,10 +33,11 @@
 
       <div class="row">
 
-        <div class="col-6 offset-3">
+        <div class="col-6 offset-3 text-center">
 
-          <h1 class="text-center mt-5 mb-3">Password:</h1>
-          <h5 class="text-center"><?php echo generatePassword($pwd_length, $letters, $numbers, $symbols)?></h5>
+          <h1 class="mt-5 mb-3">Password:</h1>
+          <h5 class="mb-3"><?php echo generatePassword($pwd_length, $letters, $numbers, $symbols, $norepeat)?></h5>
+          <button class="btn btn-warning"><a class="text-decoration-none text-black" href="index.php">Vai alla Home</a></button>
 
         </div>
 
